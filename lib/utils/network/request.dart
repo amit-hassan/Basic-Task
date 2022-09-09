@@ -40,9 +40,9 @@ class Request {
     return path;
   }
 
-  static Future<Options> buildRequestOptions({required String userName, required String password}) async {
+  static Future<Options> buildRequestJsonOptions() async {
     Map<String,dynamic> headers = {};
-    headers[""] = "";
+    headers["accept"] = "application/ld+json";
 
     return Options(headers: headers);
   }

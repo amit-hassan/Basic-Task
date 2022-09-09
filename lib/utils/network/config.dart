@@ -1,5 +1,5 @@
 class ApiConfig{
 
-  static const String BASE_URL = "";
-  
+  static const String BASE_URL = "https://api.mail.tm";
+
 }

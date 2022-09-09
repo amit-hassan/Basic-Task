@@ -4,6 +4,7 @@ class SignUp extends StatefulWidget {
 
   SignUpService service;
 
+
   SignUp({required this.service, Key? key}) : super(key: key);
 
   @override
@@ -103,11 +104,13 @@ class _SignUpState extends State<SignUp> {
               child: ElevatedButton(
                 style: Style.primaryColorButton(),
                 onPressed: () async {
-                  FocusScope.of(context).requestFocus(FocusNode());
+                  widget.service.getDomainList();
+                /*  FocusScope.of(context).requestFocus(FocusNode());
                   if(_username!.isNotEmpty&&_password!.isNotEmpty) {
                    // Dialogs.requestLoader(context);
-                    displayResponse(userName: _username!,password: _password!);
-                  }
+                    widget.service.getDomainList();
+                    //displayResponse(userName: _username!,password: _password!);
+                  }*/
                 },
                 child: Text("Sign Up", style: Style.textButtonTab1White()),
               ),
