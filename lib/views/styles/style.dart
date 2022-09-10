@@ -7,7 +7,7 @@ class Style {
   static TextStyle body1Ash () => Text_Style.body1Ash();
   static TextStyle body3Orange () => Text_Style.body3Orange();
   static TextStyle textButtonTab1White () => Text_Style.textButtonTab1White();
-
+  static TextStyle title1Blue () => Text_Style.title1Blue();
   //All Heights
   static double basicGap(BuildContext context) => MediaQuery_Height.basicGap(context);
 

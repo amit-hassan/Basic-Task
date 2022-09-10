@@ -25,4 +25,10 @@ mixin Text_Style {
     fontWeight: FontWeight.w600,
     fontSize: 16,
   );
+
+  static TextStyle  title1Blue()=> const TextStyle(
+    color: GlobalColor.textColorBlue,
+    fontWeight: FontWeight.w600,
+    fontSize: 20,
+  );
 }

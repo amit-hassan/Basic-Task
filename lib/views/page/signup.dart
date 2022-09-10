@@ -13,7 +13,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
 
-  String? _username;
+  String? _address;
   String? _password;
   bool _obscureText = true;
 
@@ -24,11 +24,24 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: body(),
+      //body: body(),
+      body: Column(
+        children: [
+          FutureBuilder(
+            future: widget.service.getDomainList(),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if(snapshot.hasData) {
+                return body(domainList : snapshot.data!);
+              }
+              return const Expanded(child: Align(alignment:Alignment.center,child: CircularProgressIndicator(color: GlobalColor.primaryColor,)));
+            },
+          ),
+        ],
+      ),
     );
   }
 
-  Widget body() {
+  Widget body({required domainList}) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
@@ -43,9 +56,10 @@ class _SignUpState extends State<SignUp> {
         child: Column(
           children: [
              SizedBox(height: Style.basicGap(context)*2),
+            Text(domainList??'getting data',style: Style.title1Blue(),),
             TextFormField(
               style: Style.body1Blue(),
-              onChanged: (value) => _username = value,
+              onChanged: (value) => _address = value,
               validator: (value) {
                 if(value == null || value.isEmpty) {
                   return 'Please enter username';
@@ -105,12 +119,11 @@ class _SignUpState extends State<SignUp> {
                 style: Style.primaryColorButton(),
                 onPressed: () async {
                   widget.service.getDomainList();
-                /*  FocusScope.of(context).requestFocus(FocusNode());
-                  if(_username!.isNotEmpty&&_password!.isNotEmpty) {
-                   // Dialogs.requestLoader(context);
-                    widget.service.getDomainList();
-                    //displayResponse(userName: _username!,password: _password!);
-                  }*/
+                  FocusScope.of(context).requestFocus(FocusNode());
+                  if(_address!.isNotEmpty&&_password!.isNotEmpty) {
+
+                    //displayResponse(userName: _address!,password: _password!);
+                  }
                 },
                 child: Text("Sign Up", style: Style.textButtonTab1White()),
               ),
