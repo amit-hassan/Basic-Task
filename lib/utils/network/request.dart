@@ -47,4 +47,20 @@ class Request {
     return Options(headers: headers);
   }
 
+  static Future<Options> buildRequestContentTypeOptions() async {
+    Map<String,dynamic> headers = {};
+    headers["accept"] = "application/ld+json";
+    headers["Content-Type"] = "application/ld+json";
+
+    return Options(headers: headers);
+  }
+
+  static Future<Options> buildRequestLoginOptions() async {
+    Map<String,dynamic> headers = {};
+    headers["accept"] = "application/json";
+    headers["Content-Type"] = "application/json";
+
+    return Options(headers: headers);
+  }
+
 }

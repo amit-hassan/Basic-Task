@@ -4,4 +4,7 @@ class ApiUrl {
 
   static String get domainList => "/domains";
 
+  static String get account => "/accounts";
+
+
 }
