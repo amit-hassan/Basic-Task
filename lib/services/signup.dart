@@ -1,4 +1,4 @@
-import 'package:basic_task/utils/index.dart';
+import '../../index.dart';
 import 'package:basic_task/utils/network/request.dart';
 
 class SignUpService {

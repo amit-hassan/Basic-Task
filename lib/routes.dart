@@ -1,6 +1,7 @@
 import './index.dart';
 
 final Routes = {
-  '/' : (BuildContext context) => SignUpController().getView(),
+  '/'        :    (BuildContext context) => SignUpController().getView(),
+ // '/home'    :    (BuildContext context) =>
 
 };
