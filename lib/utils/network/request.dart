@@ -44,6 +44,7 @@ class Request {
   static Future<Options> buildRequestJsonOptions() async {
     Map<String,dynamic> headers = {};
     headers["accept"] = "application/ld+json";
+    headers["Authorization"] = "Bearer ${ApiConfig.ACCESS_TOKEN}".trim();
 
     return Options(headers: headers);
   }

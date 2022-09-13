@@ -6,5 +6,6 @@ class ApiUrl {
 
   static String get account => "/accounts";
 
+  static String get messages => "/messages";
 
 }
